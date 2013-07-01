@@ -59,13 +59,13 @@ namespace TestLongList
 
         private void AddBottom(object sender, EventArgs e)
         {
-            App.ViewModel.LoadBottomElements();
+            App.ViewModel.LoadBottomElements(10);
         }
 
         private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
         {
             //App.ViewModel.SetPullDetector(ItemsList);
-            App.ViewModel.LoadTopElements(26);
+            //App.ViewModel.LoadTopElements(26);
         }
 
         //private void LongListSelector_OnItemRealized(object sender, ItemRealizationEventArgs e)
@@ -85,32 +85,32 @@ namespace TestLongList
 
         private void ItemsList_OnItemRealized(object sender, ItemRealizationEventArgs e)
         {
-            if (e.ItemKind != LongListSelectorItemKind.Item)
-                return;
-            var item = e.Container.Content as ItemViewModel;
-            if (!App.ViewModel.IsDataLoading && ItemsList.ItemsSource[0] == item)
-            {
-                //if (!_firstRealized)
-                //{
-                //    _firstRealized = true;
-                //}
-                //else
-                //{
-                App.ViewModel.LoadTopElements(10);
-                    Debug.WriteLine("");
-                //}
-            }
+            //if (e.ItemKind != LongListSelectorItemKind.Item)
+            //    return;
+            //var item = e.Container.Content as ItemViewModel;
+            //if (!App.ViewModel.IsDataLoading && ItemsList.ItemsSource[0] == item)
+            //{
+            //    //if (!_firstRealized)
+            //    //{
+            //    //    _firstRealized = true;
+            //    //}
+            //    //else
+            //    //{
+            //    App.ViewModel.LoadTopElements(10);
+            //        Debug.WriteLine("");
+            //    //}
+            //}
         }
 
         private void ItemsList_OnItemUnrealized(object sender, ItemRealizationEventArgs e)
         {
-            if (e.ItemKind != LongListSelectorItemKind.Item)
-                return;
-            var item = e.Container.Content as ItemViewModel;
-            if (!App.ViewModel.IsDataLoading && ItemsList.ItemsSource[0] == item)
-            {
-                    Debug.WriteLine("");
-            }
+            //if (e.ItemKind != LongListSelectorItemKind.Item)
+            //    return;
+            //var item = e.Container.Content as ItemViewModel;
+            //if (!App.ViewModel.IsDataLoading && ItemsList.ItemsSource[0] == item)
+            //{
+            //        Debug.WriteLine("");
+            //}
         }
     }
 }

@@ -103,25 +103,27 @@ namespace TestLongList.ViewModels
             }
         }
 
-        public void LoadBottomElements()
+        public void LoadBottomElements(int count)
         {
             IsDataLoading = false;
-            int i = 90;
-            while (i < 100)
+            int i = 0;
+            while (i < count)
             {
                 this.Items.Add(new ItemViewModel()
                     {
-                        LineOne = i + " -- runtime one",
+                        LineOne = bottomCounter + " -- runtime one",
                         LineTwo = "Maecenas praesent accumsan bibendum",
                         LineThree =
                             "Facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis senectus sociosqu"
                     });
+                bottomCounter--;
                 i++;
             }
             IsDataLoading = true;
         }
 
-        private int counter = 0;
+        private int topCounter = 100;
+        private int bottomCounter = 100;
         public void LoadTopElements(int count)
         {
             int i = 0;
@@ -129,12 +131,12 @@ namespace TestLongList.ViewModels
             {
                 this.Items.Insert(0, new ItemViewModel()
                     {
-                        LineOne = counter + " -- runtime one",
+                        LineOne = topCounter + " -- runtime one",
                         LineTwo = "Maecenas praesent accumsan bibendum",
                         LineThree =
                             "Facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis senectus sociosqu"
                     });
-                counter++;
+                topCounter++;
                 i++;
             }
         }
