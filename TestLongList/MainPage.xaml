@@ -58,16 +58,16 @@
                 <ScrollViewer x:Name="ScrollViewer" Height="530" Margin="0,1,0,0">
                     <ScrollViewer.Content>
                         <!--Double line list no text wrapping-->
-                        <ListBox ItemsSource="{Binding Items}" Height="530">
-                            <ListBox.ItemTemplate>
+                        <phone:LongListSelector ItemsSource="{Binding Items}" Height="530">
+                            <phone:LongListSelector.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Margin="0,0,0,17">
                                         <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                                         <TextBlock Text="{Binding LineThree}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                     </StackPanel>
                                 </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                            </phone:LongListSelector.ItemTemplate>
+                        </phone:LongListSelector>
                     </ScrollViewer.Content>
                 </ScrollViewer>
             </phone:PivotItem>
