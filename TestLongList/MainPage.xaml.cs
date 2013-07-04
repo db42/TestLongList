@@ -75,7 +75,7 @@ namespace TestLongList
             var item = e.Container.Content as ItemViewModel;
             if (!App.ViewModel.IsDataLoading && ItemsList.ItemsSource[0] == item)
             {
-                App.ViewModel.LoadTopElements();
+                App.ViewModel.LoadTopElements(10);
             }
         }
 
@@ -85,21 +85,21 @@ namespace TestLongList
 
         private void ItemsList_OnItemRealized(object sender, ItemRealizationEventArgs e)
         {
-            //if (e.ItemKind != LongListSelectorItemKind.Item)
-            //    return;
-            //var item = e.Container.Content as ItemViewModel;
-            //if (!App.ViewModel.IsDataLoading && ItemsList.ItemsSource[0] == item)
-            //{
-            //    //if (!_firstRealized)
-            //    //{
-            //    //    _firstRealized = true;
-            //    //}
-            //    //else
-            //    //{
-            //    App.ViewModel.LoadTopElements(10);
-            //        Debug.WriteLine("");
-            //    //}
-            //}
+            if (e.ItemKind != LongListSelectorItemKind.Item)
+                return;
+            var item = e.Container.Content as ItemViewModel;
+            if (!App.ViewModel.IsDataLoading && ItemsList.ItemsSource[0] == item)
+            {
+                //if (!_firstRealized)
+                //{
+                //    _firstRealized = true;
+                //}
+                //else
+                //{
+                App.ViewModel.LoadTopElements(10);
+                //Debug.WriteLine("");
+                //}
+            }
         }
 
         private void ItemsList_OnItemUnrealized(object sender, ItemRealizationEventArgs e)
