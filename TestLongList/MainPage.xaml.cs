@@ -65,19 +65,19 @@ namespace TestLongList
         private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
         {
             //App.ViewModel.SetPullDetector(ItemsList);
-            //App.ViewModel.LoadTopElements(26);
+            App.ViewModel.LoadTopElements(26);
         }
 
-        //private void LongListSelector_OnItemRealized(object sender, ItemRealizationEventArgs e)
-        //{
-        //    if (e.ItemKind != LongListSelectorItemKind.Item)
-        //        return;
-        //    var item = e.Container.Content as ItemViewModel;
-        //    if (!App.ViewModel.IsDataLoading && ItemsList.ItemsSource[0] == item )
-        //    {
-        //        App.ViewModel.LoadTopElements();
-        //    }
-        //}
+        private void LongListSelector_OnItemRealized(object sender, ItemRealizationEventArgs e)
+        {
+            if (e.ItemKind != LongListSelectorItemKind.Item)
+                return;
+            var item = e.Container.Content as ItemViewModel;
+            if (!App.ViewModel.IsDataLoading && ItemsList.ItemsSource[0] == item)
+            {
+                App.ViewModel.LoadTopElements();
+            }
+        }
 
         private void ItemsList_OnManipulationStateChanged(object sender, EventArgs e)
         {
@@ -111,6 +111,11 @@ namespace TestLongList
             //{
             //        Debug.WriteLine("");
             //}
+        }
+
+        private void FrameworkElement_OnLoaded1(object sender, RoutedEventArgs e)
+        {
+            App.ViewModel.LoadTopElements(10);
         }
     }
 }
